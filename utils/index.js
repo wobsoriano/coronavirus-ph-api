@@ -32,8 +32,21 @@ const toTBA = val => {
   return val
 }
 
+const getStatus = val => {
+  if (val === 'Dead') {
+    return 'Died'
+  }
+
+  if (toTBA(val) !== 'TBA') {
+    return val
+  }
+
+  return 'Admitted'
+}
+
 module.exports = {
   toIS08601,
   stringToNumber,
-  toTBA
+  toTBA,
+  getStatus
 }

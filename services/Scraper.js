@@ -3,7 +3,7 @@ const cheerioTableparser = require('cheerio-tableparser')
 const axios = require('axios')
 const https = require('https')
 const { GoogleSpreadsheet } = require('google-spreadsheet')
-const { toIS08601, stringToNumber, toTBA } = require('../utils')
+const { toIS08601, stringToNumber, toTBA, getStatus } = require('../utils')
 const request = require('request')
 const csv = require('csvtojson')
 require('dotenv').config()
@@ -45,13 +45,16 @@ class Scraper {
             ? toTBA(redditCases[idx]['Nationality'])
             : 'TBA',
           hospital_admitted_to: toTBA(i.facility),
-          had_recent_travel_history_abroad: redditCases[idx]
+          travel_history: redditCases[idx]
             ? toTBA(redditCases[idx]['Travel History'])
             : 'TBA',
+          status: redditCases[idx]
+            ? getStatus(redditCases[idx]['Status'])
+            : 'Admitted',
           latitude: toTBA(i.latitude) !== 'TBA' ? +i.latitude : 'TBA',
           longitude: toTBA(i.longitude) !== 'TBA' ? +i.longitude : 'TBA',
           resident_of: redditCases[idx]
-            ? redditCases[idx]['Resident Of']
+            ? toTBA(redditCases[idx]['Resident of'])
             : 'TBA'
         }
       })
@@ -65,16 +68,18 @@ class Scraper {
             gender: 'TBA',
             nationality: 'TBA',
             hospital_admitted_to: 'TBA',
-            had_recent_travel_history_abroad: 'TBA',
+            travel_history: 'TBA',
+            status: 'Admitted',
             latitude: 'TBA',
-            longitude: 'TBA'
+            longitude: 'TBA',
+            resident_of: 'TBA'
           })
         }
       }
 
       return cases
     } catch (e) {
-      console.log(e)
+      throw new Error(e)
     }
   }
 

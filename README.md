@@ -27,9 +27,11 @@ GET /cases
     "gender": "F",
     "nationality": "Chinese",
     "hospital_admitted_to": "San Lazaro Hospital",
-    "had_recent_travel_history_abroad": "Yes",
+    "travel_history": "Yes",
     "status": "Recovered",
-    "other_information": "First case of COVID-19 in PH",
+    "latitude": 14.613754,
+    "longitude": 120.98081499999999,
+    "resident_of": "Wuhan, China"
   },
   {...}
 ]
