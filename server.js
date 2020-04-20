@@ -24,6 +24,22 @@ app.get('/README.md', (_, res) => {
 	res.sendFile(path.join(__dirname + '/README.md'));
 });
 
+app.get('/total', async (req, res) => {
+	try {
+		const data = await scrape.getTotalCases();
+		return res.json({
+			success: true,
+			source: 'https://tiny.cc/n8nsmz',
+			data,
+		});
+	} catch (e) {
+		return res.json({
+			sucess: false,
+			message: e.message,
+		});
+	}
+});
+
 app.get('/cases', async (req, res) => {
 	try {
 		const data = await scrape.getCases();

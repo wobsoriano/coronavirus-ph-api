@@ -67,6 +67,37 @@ class Scraper {
 		return rows;
 	}
 
+	async getTotalCases() {
+		const rows = await this.getSheetByTitle('Historical');
+
+		const reversed = rows.reverse();
+
+		let result;
+
+		for (let x = 0; x < reversed.length; x++) {
+			const row = reversed[x];
+			const dateRow = dayjs(row['Date']).format('YYYY-MM-DD');
+			const now = dayjs().format('YYYY-MM-DD');
+
+			if (dateRow === now) {
+				result = {
+					cases: +row['Cases'],
+					deaths: +row['Deaths'],
+					recoveries: +row['Recoveries'],
+					cases_today: +row['Daily Case Increase'],
+					deaths_today: +row['Daily Death'],
+					recoveries_today: +row['Daily Recovery'],
+					admitted: +row['Admitted'],
+					fatality_rate: row['Fatality Rate'],
+					recovery_rate: row['Recovery Rate'],
+				};
+				break;
+			}
+		}
+
+		return result;
+	}
+
 	async getDOHDataDrop() {
 		const rows = await this.getSheetByTitle('DOH Data Drop');
 
