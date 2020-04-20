@@ -14,6 +14,26 @@
 
 All requests must be made to the base url: `https://coronavirus-ph-api.herokuapp.com` (e.g: https://coronavirus-ph-api.herokuapp.com/cases). You can try them out in your browser to further inspect responses.
 
+Getting total cases:
+
+```http
+GET /total
+```
+
+```json
+{
+	"cases": 6459,
+	"deaths": 428,
+	"recoveries": 613,
+	"cases_today": 200,
+	"deaths_today": 19,
+	"recoveries_today": 41,
+	"admitted": 5418,
+	"fatality_rate": "6.63%",
+	"recovery_rate": "9.49%"
+}
+```
+
 Getting summary of COVID-19 cases in the Philippines (DOH Data Drop):
 
 ```http
