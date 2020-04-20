@@ -90,7 +90,7 @@ GET /cases
 ```
 
 Getting confirmed cases of Filipino
-nationals outside the Philippines:
+nationals outside the Philippines by Region:
 
 ```http
 GET /cases-outside-ph
@@ -99,10 +99,10 @@ GET /cases-outside-ph
 ```json
 [
   {
-    "country_territory_place": "Diamond Princess",
-    "confirmed": 80,
-    "recovered": 70,
-    "died": 0
+    "country_territory_place": "Asia-Pacific",
+    "confirmed": 272,
+    "recovered": 111,
+    "died": 160
   },
   {...}
 ]
