@@ -2,7 +2,7 @@
 
 # coronavirus-ph (API)
 
-> 🦠An API for tracking the coronavirus (COVID-19, SARS-CoV-2) outbreak in the Philippines.
+> 🦠 An API for tracking the coronavirus (COVID-19, SARS-CoV-2) outbreak in the Philippines.
 
 ![GitHub](https://img.shields.io/github/license/sorxrob/coronavirus-ph-api)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sorxrob/coronavirus-ph-api?label=size)
@@ -22,15 +22,15 @@ GET /total
 
 ```json
 {
-	"cases": 6459,
-	"deaths": 428,
-	"recoveries": 613,
-	"cases_today": 200,
-	"deaths_today": 19,
-	"recoveries_today": 41,
-	"admitted": 5418,
-	"fatality_rate": "6.63%",
-	"recovery_rate": "9.49%"
+  "cases": 6459,
+  "deaths": 428,
+  "recoveries": 613,
+  "cases_today": 200,
+  "deaths_today": 19,
+  "recoveries_today": 41,
+  "admitted": 5418,
+  "fatality_rate": "6.63%",
+  "recovery_rate": "9.49%"
 }
 ```
 
